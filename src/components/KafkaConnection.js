@@ -48,7 +48,7 @@ const KafkaConnection = () => {
   return (
     <Container maxW="2xl">
       <Flex p="4">
-        <Heading as="h1" size="xl">
+        <Heading as="h2" size="xl">
         Kafka Connection
         </Heading>
         <Spacer />

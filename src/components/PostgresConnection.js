@@ -48,7 +48,7 @@ const PostgresConnection = () => {
   return (
     <Container maxW="2xl">
       <Flex p="4">
-        <Heading as="h1" size="xl">
+        <Heading as="h2" size="xl">
         Postgres Connection
         </Heading>
         <Spacer />
@@ -123,6 +123,7 @@ const PostgresConnection = () => {
                     value={form.sslMode}
                   />
                 </Box>
+                <Spacer />
                 <Box p="2">
                   <Button colorScheme="blue" onClick={() => removeFields(index)}>
                     Remove
