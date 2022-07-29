@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { ChakraProvider, Container, Divider, VStack } from '@chakra-ui/react'
 import './App.css';
 
+import Cluster from './components/Cluster';
+import PostgresConnection from './components/PostgresConnection';
+import Secret from './components/Secret';
+import KafkaConnection from './components/KafkaConnection';
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <VStack>
+        <Cluster />
+        <Divider />
+        <Secret />
+        <Divider />
+        <PostgresConnection />
+        <Divider />
+        
+        <Divider />
+      </VStack>
+    </ChakraProvider>
   );
 }
 

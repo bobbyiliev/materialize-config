@@ -1,0 +1,128 @@
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  Code,
+  Flex,
+  Heading,
+  Input,
+  Select,
+  Spacer,
+} from "@chakra-ui/react";
+
+const Cluster = () => {
+  const [formFields, setFormFields] = useState([]);
+  const sizes = [
+    "xsmall",
+    "small",
+    "medium",
+    "large",
+    "xlarge",
+    "2xlarge",
+    "3xlarge",
+    "4xlarge",
+    "5xlarge",
+    "6xlarge",
+  ];
+
+  const handleFormChange = (event, index) => {
+    let data = [...formFields];
+    data[index][event.target.name] = event.target.value;
+    setFormFields(data);
+  };
+
+  const submit = e => {
+    e.preventDefault();
+    console.log(formFields);
+  };
+
+  const addFields = () => {
+    let object = {
+      name: "",
+      replica: "",
+      size: "",
+    };
+
+    setFormFields([...formFields, object]);
+  };
+
+  const removeFields = index => {
+    let data = [...formFields];
+    data.splice(index, 1);
+    setFormFields(data);
+  };
+  return (
+    <Container maxW="2xl">
+      <Flex p="4">
+        <Heading as="h1" size="xl">
+          Cluster
+        </Heading>
+        <Spacer />
+        <Button colorScheme="blue" onClick={addFields}>
+          Add More..
+        </Button>
+      </Flex>
+      <form onSubmit={submit}>
+        {formFields.map((form, index) => {
+          return (
+            <Flex key={index}>
+              <Box p="2">
+                <Input
+                  name="name"
+                  placeholder="Name"
+                  onChange={event => handleFormChange(event, index)}
+                  value={form.name}
+                />
+              </Box>
+              <Box p="2">
+                <Input
+                  name="replica"
+                  placeholder="Replica Name"
+                  onChange={event => handleFormChange(event, index)}
+                  value={form.replica}
+                />
+              </Box>
+              <Box p="2">
+                <Select
+                  placeholder="Select option"
+                  name="size"
+                  onChange={event => handleFormChange(event, index)}
+                  value={form.Size}
+                >
+                  {sizes.map((size, index) => {
+                    return (
+                      <option key={index} value={size}>
+                        {size}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </Box>
+              <Box p="2">
+                <Button colorScheme="blue" onClick={() => removeFields(index)}>
+                  Remove
+                </Button>
+              </Box>
+            </Flex>
+          );
+        })}
+      </form>
+      <br />
+      <div>
+        {formFields.map((form, index) => {
+          return (
+            <div key={index}>
+              <Code>
+                CREATE CLUSTER {form.name} REPLICAS ({form.replica} (SIZE='{form.size}') );
+              </Code>
+            </div>
+          );
+        })}
+      </div>
+    </Container>
+  );
+};
+
+export default Cluster;
