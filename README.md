@@ -1,3 +1,6 @@
 # Materialize Configurator
 
-TODO
+Getting started:
+
+    npm install
+    npm start
