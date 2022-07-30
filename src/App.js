@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from "react";
 
-import { ChakraProvider, Container, Divider, VStack } from '@chakra-ui/react'
-import './App.css';
+import { ChakraProvider, Divider, VStack } from "@chakra-ui/react";
+import "./App.css";
 
-import Header from './Header';
-import Cluster from './components/Cluster';
-import PostgresConnection from './components/PostgresConnection';
-import Secret from './components/Secret';
-
-import KafkaConnection from './components/KafkaConnection';
+import Cluster from "./components/Cluster";
+import Header from "./Header";
+import KafkaConnection from "./components/KafkaConnection";
+import KafkaSource from "./components/KafkaSource";
+import PostgresConnection from "./components/PostgresConnection";
+import Secret from "./components/Secret";
+import SchemaRegistryConnection from "./components/SchemaRegistryConnection";
 
 function App() {
   useEffect(() => {
-    document.title = "Materialize Config"
+    document.title = "Materialize Config";
   });
 
   return (
@@ -25,7 +26,11 @@ function App() {
         <Divider />
         <PostgresConnection />
         <Divider />
-        
+        <KafkaConnection />
+        <Divider />
+        <SchemaRegistryConnection />
+        <Divider />
+        <KafkaSource />
         <Divider />
       </VStack>
     </ChakraProvider>

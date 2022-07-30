@@ -12,7 +12,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
-const PostgresConnection = () => {
+const SchemaRegistryConnection = () => {
   const [formFields, setFormFields] = useState([]);
 
   const handleFormChange = (event, index) => {
@@ -29,12 +29,12 @@ const PostgresConnection = () => {
   const addFields = () => {
     let object = {
       name: "",
-      host: "",
-      port: "",
-      database: "",
+      url: "",
       username: "",
       password: "",
-      sslMode: "",
+      certificate: "",
+      key: "",
+      ca: "",
     };
 
     setFormFields([...formFields, object]);
@@ -45,11 +45,12 @@ const PostgresConnection = () => {
     data.splice(index, 1);
     setFormFields(data);
   };
+
   return (
     <Container maxW="2xl">
       <Flex p="4">
         <Heading as="h2" size="xl">
-          Postgres Connection
+          Schema Registry Connection
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
@@ -71,28 +72,10 @@ const PostgresConnection = () => {
                 </Box>
                 <Box p="2" w="full">
                   <Input
-                    name="host"
-                    placeholder="Host"
+                    name="url"
+                    placeholder="URL"
                     onChange={event => handleFormChange(event, index)}
-                    value={form.host}
-                  />
-                </Box>
-              </Flex>
-              <Flex>
-                <Box p="2" w="full">
-                  <Input
-                    name="port"
-                    placeholder="Port"
-                    onChange={event => handleFormChange(event, index)}
-                    value={form.port}
-                  />
-                </Box>
-                <Box p="2" w="full">
-                  <Input
-                    name="database"
-                    placeholder="Database"
-                    onChange={event => handleFormChange(event, index)}
-                    value={form.database}
+                    value={form.url}
                   />
                 </Box>
               </Flex>
@@ -117,13 +100,30 @@ const PostgresConnection = () => {
               <Flex>
                 <Box p="2">
                   <Input
-                    name="sslMode"
-                    placeholder="SSL Mode"
+                    name="certificate"
+                    placeholder="SSL Certificate"
                     onChange={event => handleFormChange(event, index)}
-                    value={form.sslMode}
+                    value={form.certificate}
                   />
                 </Box>
-                <Spacer />
+                <Box p="2">
+                  <Input
+                    name="key"
+                    placeholder="SSL Key"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.key}
+                  />
+                </Box>
+                <Box p="2">
+                  <Input
+                    name="ca"
+                    placeholder="CA Certificate"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.ca}
+                  />
+                </Box>
+              </Flex>
+              <Flex>
                 <Box p="2">
                   <Button
                     colorScheme="blue"
@@ -143,18 +143,40 @@ const PostgresConnection = () => {
           return (
             <div key={index}>
               <Code p="2" className="sqlOutput">
-                CREATE CONNECTION {form.name} FOR POSTGRES <br />
-                HOST {form.host}, <br />
-                PORT {form.port}, <br />
-                DATABASE {form.database}, <br />
-                USER SECRET {form.username}, <br />
-                PASSWORD SECRET {form.password}
-                {form.sslMode && (
+                CREATE CONNECTION {form.name} <br />
+                FOR CONFLUENT SCHEMA REGISTRY <br />
+                URL {form.url}
+                {form.username && (
                   <>
-                    , <br /> SSL MODE {form.sslMode}
+                    , <br />
+                    USERNAME = SECRET {form.username}
                   </>
                 )}
-                ; <br />
+                {form.password && (
+                  <>
+                    , <br />
+                    PASSWORD = SECRET {form.password}
+                  </>
+                )}
+                {form.certificate && (
+                  <>
+                    , <br />
+                    SSL CERTIFICATE = SECRET {form.certificate}
+                  </>
+                )}
+                {form.key && (
+                  <>
+                    , <br />
+                    SSL KEY = SECRET {form.key}
+                  </>
+                )}
+                {form.ca && (
+                  <>
+                    , <br />
+                    SSL CERTIFICATE AUTHORITY = SECRET {form.ca}
+                  </>
+                )}
+                ;
               </Code>
             </div>
           );
@@ -164,4 +186,4 @@ const PostgresConnection = () => {
   );
 };
 
-export default PostgresConnection;
+export default SchemaRegistryConnection;

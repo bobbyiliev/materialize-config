@@ -114,8 +114,9 @@ const Cluster = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code>
-                CREATE CLUSTER {form.name} REPLICAS ({form.replica} (SIZE='{form.size}') );
+              <Code className="sqlOutput">
+                CREATE CLUSTER {form.name} REPLICAS ({form.replica} (SIZE='
+                {form.size}') );
               </Code>
             </div>
           );

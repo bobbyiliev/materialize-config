@@ -47,6 +47,7 @@ const Secret = () => {
   const removeFields = index => {
     let data = [...formFields];
     data.splice(index, 1);
+    // updated checked value
     setFormFields(data);
   };
   return (
@@ -84,6 +85,8 @@ const Secret = () => {
                 <Checkbox
                   type="checkbox"
                   name="encrypted"
+                  key={index}
+                  isChecked={form.encrypted}
                   onChange={event => handleFormChange(event, index)}
                 >
                   Encrypted
@@ -101,24 +104,19 @@ const Secret = () => {
       <br />
       <div>
         {formFields.map((form, index) => {
-          if (form.encrypted) {
-            return (
-              <div key={index}>
-                <Code>
-                  CREATE SECRET {form.name} AS decode( {form.secret}, 'base64' ){" "}
-                  ;
-                </Code>
-              </div>
-            );
-          } else {
-            return (
-              <div key={index}>
-                <Code>
-                  CREATE SECRET {form.name} AS {form.secret} ;
-                </Code>
-              </div>
-            );
-          }
+          return (
+            <div key={index}>
+              <Code p="2" className="sqlOutput">
+                CREATE SECRET {form.name} AS
+                {form.encrypted ? (
+                  <> decode({form.secret}, 'base64')</>
+                ) : (
+                  <> {form.secret}</>
+                )}
+                ;
+              </Code>
+            </div>
+          );
         })}
       </div>
     </Container>
