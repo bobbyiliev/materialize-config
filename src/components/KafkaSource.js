@@ -14,7 +14,8 @@ import {
 
 const KafkaSource = () => {
   const [formFields, setFormFields] = useState([]);
-  const formats = ["AVRO", "JSON", "PROTOBUF", "TEXT", "BYTES", "CSV"];
+  const formats = ["AVRO", "PROTOBUF", "TEXT", "BYTES", "CSV"];
+  const envelopes = ["NONE", "DEBEZIUM", "DEBEZIUM UPSERT", "UPSERT"];
 
   const handleFormChange = (event, index) => {
     let data = [...formFields];
@@ -33,6 +34,7 @@ const KafkaSource = () => {
       kafka: "",
       topic: "",
       format: "",
+      envelope: "",
     };
 
     setFormFields([...formFields, object]);
@@ -140,6 +142,24 @@ const KafkaSource = () => {
                 </Flex>
               )}
               <Flex>
+                <Box p="2" w="full">
+                  <Select
+                    placeholder="Envelope"
+                    name="envelope"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.envelope}
+                  >
+                    {envelopes.map((envelope, index) => {
+                      return (
+                        <option key={index} value={envelope}>
+                          {envelope}
+                        </option>
+                      );
+                    })}
+                  </Select>
+                </Box>
+              </Flex>
+              <Flex>
                 <Spacer />
                 <Box p="2">
                   <Button
@@ -167,13 +187,20 @@ const KafkaSource = () => {
                 {form.schema && (
                   <>
                     <br />
-                    &nbsp; USING CONFLUENT SCHEMA REGISTRY CONNECTION {form.schema}
+                    &nbsp; USING CONFLUENT SCHEMA REGISTRY CONNECTION{" "}
+                    {form.schema}
                   </>
                 )}
                 {form.format == "CSV" && (
                   <>
                     <br />
                     &nbsp; WITH {form.columns} COLUMNS
+                  </>
+                )}
+                {form.envelope && (
+                  <>
+                    <br />
+                    &nbsp; ENVELOPE {form.envelope}
                   </>
                 )}
                 ;
