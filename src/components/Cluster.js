@@ -6,6 +6,7 @@ import {
   Container,
   Code,
   Flex,
+  FormControl,
   Heading,
   Input,
   Select,
@@ -61,30 +62,30 @@ const Cluster = () => {
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
-          Add More..
+          Add More
         </Button>
       </Flex>
       <form onSubmit={submit}>
         {formFields.map((form, index) => {
           return (
             <Flex key={index}>
-              <Box p="2">
+              <FormControl p="2">
                 <Input
                   name="name"
                   placeholder="Name"
                   onChange={event => handleFormChange(event, index)}
                   value={form.name}
                 />
-              </Box>
-              <Box p="2">
+              </FormControl>
+              <FormControl p="2">
                 <Input
                   name="replica"
                   placeholder="Replica Name"
                   onChange={event => handleFormChange(event, index)}
                   value={form.replica}
                 />
-              </Box>
-              <Box p="2">
+              </FormControl>
+              <FormControl p="2">
                 <Select
                   placeholder="Select option"
                   name="size"
@@ -99,11 +100,16 @@ const Cluster = () => {
                     );
                   })}
                 </Select>
-              </Box>
-              <Box p="2">
-                <Button colorScheme="blue" onClick={() => removeFields(index)}>
-                  Remove
-                </Button>
+              </FormControl>
+              <Box>
+                <FormControl p="2">
+                  <Button
+                    colorScheme="blue"
+                    onClick={() => removeFields(index)}
+                  >
+                    Remove
+                  </Button>
+                </FormControl>
               </Box>
             </Flex>
           );

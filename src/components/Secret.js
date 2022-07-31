@@ -6,6 +6,7 @@ import {
   Container,
   Code,
   Flex,
+  FormControl,
   Heading,
   Input,
   SimpleGrid,
@@ -58,29 +59,29 @@ const Secret = () => {
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
-          Add More..
+          Add More
         </Button>
       </Flex>
       <form onSubmit={submit}>
         {formFields.map((form, index) => {
           return (
             <Flex key={index}>
-              <Box p="2">
+              <FormControl p="2">
                 <Input
                   name="name"
                   placeholder="Name"
                   onChange={event => handleFormChange(event, index)}
                   value={form.name}
                 />
-              </Box>
-              <Box p="2">
+              </FormControl>
+              <FormControl p="2">
                 <Input
                   name="secret"
                   placeholder="Secret"
                   onChange={event => handleFormChange(event, index)}
                   value={form.secret}
                 />
-              </Box>
+              </FormControl>
               <Box p="2">
                 <Checkbox
                   type="checkbox"

@@ -6,6 +6,7 @@ import {
   Container,
   Code,
   Flex,
+  FormControl,
   Heading,
   Input,
   Select,
@@ -54,7 +55,7 @@ const SchemaRegistryConnection = () => {
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
-          Add More..
+          Add More
         </Button>
       </Flex>
       <form onSubmit={submit}>
@@ -62,68 +63,69 @@ const SchemaRegistryConnection = () => {
           return (
             <div key={index}>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="name"
                     placeholder="Name"
                     onChange={event => handleFormChange(event, index)}
                     value={form.name}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="url"
                     placeholder="URL"
                     onChange={event => handleFormChange(event, index)}
                     value={form.url}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="username"
                     placeholder="Username"
                     onChange={event => handleFormChange(event, index)}
                     value={form.username}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="password"
                     placeholder="Password"
                     onChange={event => handleFormChange(event, index)}
                     value={form.password}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
-                <Box p="2">
+                <FormControl p="2">
                   <Input
                     name="certificate"
                     placeholder="SSL Certificate"
                     onChange={event => handleFormChange(event, index)}
                     value={form.certificate}
                   />
-                </Box>
-                <Box p="2">
+                </FormControl>
+                <FormControl p="2">
                   <Input
                     name="key"
                     placeholder="SSL Key"
                     onChange={event => handleFormChange(event, index)}
                     value={form.key}
                   />
-                </Box>
-                <Box p="2">
+                </FormControl>
+                <FormControl p="2">
                   <Input
                     name="ca"
                     placeholder="CA Certificate"
                     onChange={event => handleFormChange(event, index)}
                     value={form.ca}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
+                <Spacer />
                 <Box p="2">
                   <Button
                     colorScheme="blue"

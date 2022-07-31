@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Checkbox,
+  FormControl,
+  FormLabel,
   Container,
   Code,
   Flex,
@@ -53,7 +55,7 @@ const KafkaSource = () => {
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
-          Add More..
+          Add More
         </Button>
       </Flex>
       <form onSubmit={submit}>
@@ -61,34 +63,34 @@ const KafkaSource = () => {
           return (
             <div key={index}>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="name"
                     placeholder="Name"
                     onChange={event => handleFormChange(event, index)}
                     value={form.name}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="kafka"
                     placeholder="Kafka Connection Name"
                     onChange={event => handleFormChange(event, index)}
                     value={form.kafka}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="topic"
                     placeholder="Topic"
                     onChange={event => handleFormChange(event, index)}
                     value={form.topic}
                   />
-                </Box>
+                </FormControl>
 
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Select
                     placeholder="Select option"
                     name="format"
@@ -103,46 +105,34 @@ const KafkaSource = () => {
                       );
                     })}
                   </Select>
-                </Box>
+                </FormControl>
               </Flex>
-              {form.format === "AVRO" && (
+              {(form.format === "AVRO" || form.format === "PROTOBUF") && (
                 <Flex>
-                  <Box p="2" w="full">
+                  <FormControl p="2" w="full">
                     <Input
                       name="schema"
                       placeholder="Schema Registry Connection"
                       onChange={event => handleFormChange(event, index)}
                       value={form.schema}
                     />
-                  </Box>
-                </Flex>
-              )}
-              {form.format === "PROTOBUF" && (
-                <Flex>
-                  <Box p="2" w="full">
-                    <Input
-                      name="schema"
-                      placeholder="Schema Registry Connection"
-                      onChange={event => handleFormChange(event, index)}
-                      value={form.schema}
-                    />
-                  </Box>
+                  </FormControl>
                 </Flex>
               )}
               {form.format === "CSV" && (
                 <Flex>
-                  <Box p="2" w="full">
+                  <FormControl p="2" w="full">
                     <Input
                       name="columns"
                       placeholder="Columns"
                       onChange={event => handleFormChange(event, index)}
                       value={form.columns}
                     />
-                  </Box>
+                  </FormControl>
                 </Flex>
               )}
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Select
                     placeholder="Envelope"
                     name="envelope"
@@ -157,17 +147,19 @@ const KafkaSource = () => {
                       );
                     })}
                   </Select>
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
                 <Spacer />
-                <Box p="2">
-                  <Button
-                    colorScheme="blue"
-                    onClick={() => removeFields(index)}
-                  >
-                    Remove
-                  </Button>
+                <Box>
+                  <FormControl p="2">
+                    <Button
+                      colorScheme="blue"
+                      onClick={() => removeFields(index)}
+                    >
+                      Remove
+                    </Button>
+                  </FormControl>
                 </Box>
               </Flex>
             </div>

@@ -6,6 +6,7 @@ import {
   Container,
   Code,
   Flex,
+  FormControl,
   Heading,
   Input,
   Select,
@@ -53,7 +54,7 @@ const PostgresConnection = () => {
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
-          Add More..
+          Add More
         </Button>
       </Flex>
       <form onSubmit={submit}>
@@ -61,58 +62,58 @@ const PostgresConnection = () => {
           return (
             <div key={index}>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="name"
                     placeholder="Name"
                     onChange={event => handleFormChange(event, index)}
                     value={form.name}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="host"
                     placeholder="Host"
                     onChange={event => handleFormChange(event, index)}
                     value={form.host}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="port"
                     placeholder="Port"
                     onChange={event => handleFormChange(event, index)}
                     value={form.port}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="database"
                     placeholder="Database"
                     onChange={event => handleFormChange(event, index)}
                     value={form.database}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
-                <Box p="2" w="full">
+                <FormControl p="2" w="full">
                   <Input
                     name="username"
                     placeholder="Username"
                     onChange={event => handleFormChange(event, index)}
                     value={form.username}
                   />
-                </Box>
-                <Box p="2" w="full">
+                </FormControl>
+                <FormControl p="2" w="full">
                   <Input
                     name="password"
                     placeholder="Password"
                     onChange={event => handleFormChange(event, index)}
                     value={form.password}
                   />
-                </Box>
+                </FormControl>
               </Flex>
               <Flex>
                 <Box p="2">
