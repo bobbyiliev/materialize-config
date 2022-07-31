@@ -161,19 +161,19 @@ const KafkaSource = () => {
             <div key={index}>
               <Code p="2" className="sqlOutput">
                 CREATE SOURCE {form.name} <br />
-                FROM KAFKA CONNECTION {form.connection} <br />
-                TOPIC '{form.topic}' <br />
-                FORMAT {form.format}
+                &nbsp; FROM KAFKA CONNECTION {form.connection} <br />
+                &nbsp; TOPIC '{form.topic}' <br />
+                &nbsp; FORMAT {form.format}
                 {form.schema && (
                   <>
                     <br />
-                    USING CONFLUENT SCHEMA REGISTRY CONNECTION {form.schema}
+                    &nbsp; USING CONFLUENT SCHEMA REGISTRY CONNECTION {form.schema}
                   </>
                 )}
                 {form.format == "CSV" && (
                   <>
                     <br />
-                    WITH {form.columns} COLUMNS
+                    &nbsp; WITH {form.columns} COLUMNS
                   </>
                 )}
                 ;

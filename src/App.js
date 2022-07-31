@@ -8,6 +8,7 @@ import Header from "./Header";
 import KafkaConnection from "./components/KafkaConnection";
 import KafkaSource from "./components/KafkaSource";
 import PostgresConnection from "./components/PostgresConnection";
+import PostgresSource from "./components/PostgresSource";
 import Secret from "./components/Secret";
 import SchemaRegistryConnection from "./components/SchemaRegistryConnection";
 
@@ -31,6 +32,8 @@ function App() {
         <SchemaRegistryConnection />
         <Divider />
         <KafkaSource />
+        <Divider />
+        <PostgresSource />
         <Divider />
       </VStack>
     </ChakraProvider>

@@ -144,36 +144,36 @@ const SchemaRegistryConnection = () => {
             <div key={index}>
               <Code p="2" className="sqlOutput">
                 CREATE CONNECTION {form.name} <br />
-                FOR CONFLUENT SCHEMA REGISTRY <br />
-                URL {form.url}
+                &nbsp; FOR CONFLUENT SCHEMA REGISTRY <br />
+                &nbsp; URL {form.url}
                 {form.username && (
                   <>
                     , <br />
-                    USERNAME = SECRET {form.username}
+                    &nbsp; USERNAME = SECRET {form.username}
                   </>
                 )}
                 {form.password && (
                   <>
                     , <br />
-                    PASSWORD = SECRET {form.password}
+                    &nbsp; PASSWORD = SECRET {form.password}
                   </>
                 )}
                 {form.certificate && (
                   <>
                     , <br />
-                    SSL CERTIFICATE = SECRET {form.certificate}
+                    &nbsp; SSL CERTIFICATE = SECRET {form.certificate}
                   </>
                 )}
                 {form.key && (
                   <>
                     , <br />
-                    SSL KEY = SECRET {form.key}
+                    &nbsp; SSL KEY = SECRET {form.key}
                   </>
                 )}
                 {form.ca && (
                   <>
                     , <br />
-                    SSL CERTIFICATE AUTHORITY = SECRET {form.ca}
+                    &nbsp; SSL CERTIFICATE AUTHORITY = SECRET {form.ca}
                   </>
                 )}
                 ;

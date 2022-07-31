@@ -12,20 +12,12 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
-const Secret = () => {
-  //   const [formFields, setFormFields] = useState([
-  //     { name: "", secret: "", encrypted: "" },
-  //   ]);
+const PostgresSource = () => {
   const [formFields, setFormFields] = useState([]);
 
   const handleFormChange = (event, index) => {
     let data = [...formFields];
-    const isCheckbox = event.target.type === "checkbox";
-    if (isCheckbox) {
-      data[index][event.target.name] = event.target.checked;
-    } else {
-      data[index][event.target.name] = event.target.value;
-    }
+    data[index][event.target.name] = event.target.value;
     setFormFields(data);
   };
 
@@ -37,8 +29,8 @@ const Secret = () => {
   const addFields = () => {
     let object = {
       name: "",
-      secret: "",
-      encrypted: "",
+      connection: "",
+      publication: "",
     };
 
     setFormFields([...formFields, object]);
@@ -49,12 +41,11 @@ const Secret = () => {
     data.splice(index, 1);
     setFormFields(data);
   };
-
   return (
     <Container maxW="2xl">
       <Flex p="4">
         <Heading as="h2" size="xl">
-          Secrets
+          Postgres Source
         </Heading>
         <Spacer />
         <Button colorScheme="blue" onClick={addFields}>
@@ -75,22 +66,19 @@ const Secret = () => {
               </Box>
               <Box p="2">
                 <Input
-                  name="secret"
-                  placeholder="Secret"
+                  name="connection"
+                  placeholder="Connection"
                   onChange={event => handleFormChange(event, index)}
-                  value={form.secret}
+                  value={form.connection}
                 />
               </Box>
               <Box p="2">
-                <Checkbox
-                  type="checkbox"
-                  name="encrypted"
-                  key={index}
-                  isChecked={form.encrypted}
+                <Input
+                  name="publication"
+                  placeholder="Publication"
                   onChange={event => handleFormChange(event, index)}
-                >
-                  Encrypted
-                </Checkbox>
+                  value={form.publication}
+                />
               </Box>
               <Box p="2">
                 <Button colorScheme="blue" onClick={() => removeFields(index)}>
@@ -107,13 +95,9 @@ const Secret = () => {
           return (
             <div key={index}>
               <Code p="2" className="sqlOutput">
-                CREATE SECRET {form.name} AS
-                {form.encrypted ? (
-                  <> decode({form.secret}, 'base64')</>
-                ) : (
-                  <> {form.secret}</>
-                )}
-                ;
+                CREATE SOURCE "{form.name}" <br />
+                &nbsp; FROM POSTGRES CONNECTION {form.connection} <br />
+                &nbsp; PUBLICATION '{form.publication}';
               </Code>
             </div>
           );
@@ -123,4 +107,4 @@ const Secret = () => {
   );
 };
 
-export default Secret;
+export default PostgresSource;

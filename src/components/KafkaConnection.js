@@ -154,42 +154,42 @@ const KafkaConnection = () => {
             <div key={index}>
               <Code p="2" className="sqlOutput">
                 CREATE CONNECTION {form.name} <br />
-                FOR KAFKA <br />
-                BROKER {form.host}
+                &nbsp; FOR KAFKA <br />
+                &nbsp; BROKER {form.host}
                 {form.mechanisms && (
                   <>
                     ,<br />
-                    SASL MECHANISMS = {form.mechanisms}
+                    &nbsp; SASL MECHANISMS = {form.mechanisms}
                   </>
                 )}
                 {form.username && (
                   <>
                     , <br />
-                    SASL USERNAME = SECRET {form.username}
+                    &nbsp; SASL USERNAME = SECRET {form.username}
                   </>
                 )}
                 {form.password && (
                   <>
                     , <br />
-                    SASL PASSWORD = SECRET {form.password}
+                    &nbsp; SASL PASSWORD = SECRET {form.password}
                   </>
                 )}
                 {form.certificate && (
                   <>
                     , <br />
-                    SSL CERTIFICATE = SECRET {form.certificate}
+                    &nbsp; SSL CERTIFICATE = SECRET {form.certificate}
                   </>
                 )}
                 {form.key && (
                   <>
                     , <br />
-                    SSL KEY = SECRET {form.key}
+                    &nbsp; SSL KEY = SECRET {form.key}
                   </>
                 )}
                 {form.ca && (
                   <>
                     , <br />
-                    SSL CERTIFICATE AUTHORITY = SECRET {form.ca}
+                    &nbsp; SSL CERTIFICATE AUTHORITY = SECRET {form.ca}
                   </>
                 )}
                 ;
