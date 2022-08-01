@@ -22,11 +22,6 @@ const PostgresConnection = () => {
     setFormFields(data);
   };
 
-  const submit = e => {
-    e.preventDefault();
-    console.log(formFields);
-  };
-
   const addFields = () => {
     let object = {
       name: "",
@@ -57,7 +52,7 @@ const PostgresConnection = () => {
           Add More
         </Button>
       </Flex>
-      <form onSubmit={submit}>
+      <form>
         {formFields.map((form, index) => {
           return (
             <div key={index}>
