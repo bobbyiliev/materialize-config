@@ -9,14 +9,10 @@ import {
   FormControl,
   Heading,
   Input,
-  SimpleGrid,
   Spacer,
 } from "@chakra-ui/react";
 
 const Secret = () => {
-  //   const [formFields, setFormFields] = useState([
-  //     { name: "", secret: "", encrypted: "" },
-  //   ]);
   const [formFields, setFormFields] = useState([]);
 
   const handleFormChange = (event, index) => {
