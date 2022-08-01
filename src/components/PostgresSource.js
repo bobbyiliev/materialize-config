@@ -95,7 +95,7 @@ const PostgresSource = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code p="2" className="sqlOutput">
+              <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE SOURCE "{form.name}" <br />
                 &nbsp; FROM POSTGRES CONNECTION {form.connection} <br />
                 &nbsp; PUBLICATION '{form.publication}';

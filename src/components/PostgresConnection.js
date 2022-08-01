@@ -143,7 +143,7 @@ const PostgresConnection = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code p="2" className="sqlOutput">
+              <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} FOR POSTGRES <br />
                 &nbsp; HOST {form.host}, <br />
                 &nbsp; PORT {form.port}, <br />

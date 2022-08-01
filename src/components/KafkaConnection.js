@@ -154,7 +154,7 @@ const KafkaConnection = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code p="2" className="sqlOutput">
+              <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} <br />
                 &nbsp; FOR KAFKA <br />
                 &nbsp; BROKER {form.host}

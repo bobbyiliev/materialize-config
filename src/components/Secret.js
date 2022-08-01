@@ -103,7 +103,7 @@ const Secret = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code p="2" className="sqlOutput">
+              <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE SECRET {form.name} AS
                 {form.encrypted ? (
                   <> decode({form.secret}, 'base64')</>

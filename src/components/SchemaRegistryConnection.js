@@ -144,7 +144,7 @@ const SchemaRegistryConnection = () => {
         {formFields.map((form, index) => {
           return (
             <div key={index}>
-              <Code p="2" className="sqlOutput">
+              <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} <br />
                 &nbsp; FOR CONFLUENT SCHEMA REGISTRY <br />
                 &nbsp; URL {form.url}
