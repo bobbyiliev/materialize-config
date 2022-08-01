@@ -2,9 +2,7 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Checkbox,
   FormControl,
-  FormLabel,
   Container,
   Code,
   Flex,
@@ -178,7 +176,7 @@ const KafkaSource = () => {
                     {form.schema}
                   </>
                 )}
-                {form.format == "CSV" && (
+                {form.format === "CSV" && (
                   <>
                     <br />
                     &nbsp; WITH {form.columns} COLUMNS

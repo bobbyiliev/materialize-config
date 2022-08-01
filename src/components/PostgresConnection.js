@@ -2,14 +2,12 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   Code,
   Flex,
   FormControl,
   Heading,
   Input,
-  Select,
   Spacer,
 } from "@chakra-ui/react";
 
