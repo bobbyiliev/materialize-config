@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Container,
   Code,
   Flex,
   FormControl,
@@ -10,6 +9,7 @@ import {
   Input,
   Spacer,
 } from "@chakra-ui/react";
+import { CodeBlock } from "./CodeBlock";
 
 const KafkaConnection = () => {
   const [formFields, setFormFields] = useState([]);
@@ -42,7 +42,7 @@ const KafkaConnection = () => {
   };
 
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Kafka Connection
@@ -193,7 +193,7 @@ const KafkaConnection = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 

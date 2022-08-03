@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Container,
   Code,
   Flex,
   FormControl,
@@ -36,7 +35,7 @@ const PostgresSource = () => {
     setFormFields(data);
   };
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Postgres Source
@@ -97,7 +96,7 @@ const PostgresSource = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 

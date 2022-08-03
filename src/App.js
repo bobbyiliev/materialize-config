@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 
-import {
-  ChakraProvider,
-  Divider,
-  VStack
-} from "@chakra-ui/react";
+import { ChakraProvider, Container, Divider, VStack } from "@chakra-ui/react";
 import "./App.css";
 
 import Cluster from "./components/Cluster";
@@ -15,7 +11,7 @@ import PostgresConnection from "./components/PostgresConnection";
 import PostgresSource from "./components/PostgresSource";
 import Secret from "./components/Secret";
 import SchemaRegistryConnection from "./components/SchemaRegistryConnection";
-import theme from "./theme/index"; 
+import theme from "./theme/index";
 
 function App() {
   useEffect(() => {
@@ -26,20 +22,22 @@ function App() {
     <ChakraProvider theme={theme}>
       <VStack>
         <Header />
-        <Cluster />
-        <Divider />
-        <Secret />
-        <Divider />
-        <PostgresConnection />
-        <Divider />
-        <KafkaConnection />
-        <Divider />
-        <SchemaRegistryConnection />
-        <Divider />
-        <KafkaSource />
-        <Divider />
-        <PostgresSource />
-        <Divider />
+        <Container as="main" maxW="4xl" px="5" py="3">
+          <Cluster />
+          <Divider />
+          <Secret />
+          <Divider />
+          <PostgresConnection />
+          <Divider />
+          <KafkaConnection />
+          <Divider />
+          <SchemaRegistryConnection />
+          <Divider />
+          <KafkaSource />
+          <Divider />
+          <PostgresSource />
+          <Divider />
+        </Container>
       </VStack>
     </ChakraProvider>
   );

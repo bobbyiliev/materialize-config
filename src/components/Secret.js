@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Checkbox,
-  Container,
   Code,
   Flex,
   FormControl,
@@ -48,7 +47,7 @@ const Secret = () => {
   };
 
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Secrets
@@ -116,7 +115,7 @@ const Secret = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 

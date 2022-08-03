@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Container,
   Code,
   Flex,
   FormControl,
@@ -41,7 +40,7 @@ const SchemaRegistryConnection = () => {
   };
 
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Schema Registry Connection
@@ -177,7 +176,7 @@ const SchemaRegistryConnection = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 

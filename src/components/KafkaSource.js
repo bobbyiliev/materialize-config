@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   FormControl,
-  Container,
   Code,
   Flex,
   Heading,
@@ -41,7 +40,7 @@ const KafkaSource = () => {
     setFormFields(data);
   };
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Kafka Source
@@ -194,7 +193,7 @@ const KafkaSource = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  Container,
   Code,
   Flex,
   FormControl,
@@ -49,7 +48,7 @@ const Cluster = () => {
     setFormFields(data);
   };
   return (
-    <Container maxW="2xl">
+    <>
       <Flex p="4">
         <Heading as="h2" size="xl">
           Cluster
@@ -122,7 +121,7 @@ const Cluster = () => {
           );
         })}
       </div>
-    </Container>
+    </>
   );
 };
 
