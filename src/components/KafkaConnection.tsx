@@ -9,7 +9,6 @@ import {
   Input,
   Spacer,
 } from "@chakra-ui/react";
-import { CodeBlock } from "./CodeBlock";
 
 const KafkaConnection = () => {
   const [formFields, setFormFields] = useState([]);

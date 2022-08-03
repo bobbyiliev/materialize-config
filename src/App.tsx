@@ -1,5 +1,5 @@
+import React from 'react';
 import { useEffect } from "react";
-
 import { ChakraProvider, Container, Divider, VStack } from "@chakra-ui/react";
 import "./App.css";
 
