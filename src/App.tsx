@@ -3,14 +3,14 @@ import { useEffect } from "react";
 import { ChakraProvider, Container, Divider, VStack } from "@chakra-ui/react";
 import "./App.css";
 
-import Cluster from "./components/Cluster";
+import Cluster from "./components/statements/Cluster";
 import Header from "./Header";
-import KafkaConnection from "./components/KafkaConnection";
-import KafkaSource from "./components/KafkaSource";
-import PostgresConnection from "./components/PostgresConnection";
-import PostgresSource from "./components/PostgresSource";
-import Secret from "./components/Secret";
-import SchemaRegistryConnection from "./components/SchemaRegistryConnection";
+import KafkaConnection from "./components/statements/KafkaConnection";
+import KafkaSource from "./components/statements/KafkaSource";
+import PostgresConnection from "./components/statements/PostgresConnection";
+import PostgresSource from "./components/statements/PostgresSource";
+import Secret from "./components/statements/Secret";
+import SchemaRegistryConnection from "./components/statements/SchemaRegistryConnection";
 import theme from "./theme/index";
 
 function App() {

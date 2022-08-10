@@ -1,16 +1,23 @@
 import React from "react";
-import { Heading, Text } from '@chakra-ui/react'
+import { Heading, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 const Header = () => {
   return (
     <>
-      <Heading as="h1" size="2xl" p="8">
+      <Heading as="h1" size="2xl" pt="8" pb="4">
         Materialize Config
       </Heading>
-      <Text pb="6" fontSize="md">
-        Configure your Materialize instance
-      </Text>
+      <Breadcrumb separator="|" pb="8">
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Configuration Tool</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/integrations">Integrations</BreadcrumbLink>
+        </BreadcrumbItem>
+
+      </Breadcrumb>
     </>
   );
-}
+};
 
 export default Header;

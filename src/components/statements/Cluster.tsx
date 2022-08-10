@@ -146,7 +146,7 @@ const Cluster = () => {
                       return (
                         <span key={i}>
                           &nbsp; {form.replica}
-                          {i == 0 ? " " : i + 1 + " "}
+                          {i === 0 ? " " : i + 1 + " "}
                           (SIZE='{form.size}')
                           {i < form.numberOfReplicas - 1 ? ", " : ""} <br />
                         </span>
