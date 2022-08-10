@@ -28,15 +28,26 @@ const Cluster = () => {
 
   const handleFormChange = (event, index) => {
     let data = [...formFields];
-    data[index][event.target.name] = event.target.value;
+    if (event.target.name === "numberOfReplicas") {
+      if (Number(event.target.value) > 30) {
+        data[index][event.target.name] = 30;
+      } else if (Number(event.target.value) < 1) {
+        data[index][event.target.name] = 1;
+      } else {
+        data[index][event.target.name] = event.target.value;
+      }
+    } else {
+      data[index][event.target.name] = event.target.value;
+    }
     setFormFields(data);
   };
 
   const addFields = () => {
     let object = {
       name: "",
-      replica: "",
-      size: "",
+      replica: "replica",
+      numberOfReplicas: 1,
+      size: "small",
     };
 
     setFormFields([...formFields, object]);
@@ -61,50 +72,63 @@ const Cluster = () => {
       <form>
         {formFields.map((form, index) => {
           return (
-            <Flex key={index}>
-              <FormControl p="2">
-                <Input
-                  name="name"
-                  placeholder="Name"
-                  onChange={event => handleFormChange(event, index)}
-                  value={form.name}
-                />
-              </FormControl>
-              <FormControl p="2">
-                <Input
-                  name="replica"
-                  placeholder="Replica Name"
-                  onChange={event => handleFormChange(event, index)}
-                  value={form.replica}
-                />
-              </FormControl>
-              <FormControl p="2">
-                <Select
-                  placeholder="Select option"
-                  name="size"
-                  onChange={event => handleFormChange(event, index)}
-                  value={form.Size}
-                >
-                  {sizes.map((size, index) => {
-                    return (
-                      <option key={index} value={size}>
-                        {size}
-                      </option>
-                    );
-                  })}
-                </Select>
-              </FormControl>
-              <Box>
+            <div key={index}>
+              <Flex>
                 <FormControl p="2">
-                  <Button
-                    colorScheme="blue"
-                    onClick={() => removeFields(index)}
-                  >
-                    Remove
-                  </Button>
+                  <Input
+                    name="name"
+                    placeholder="Name"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.name}
+                  />
                 </FormControl>
-              </Box>
-            </Flex>
+                <FormControl p="2">
+                  <Input
+                    name="replica"
+                    placeholder="Replica Name"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.replica}
+                  />
+                </FormControl>
+              </Flex>
+              <Flex>
+                <FormControl p="2">
+                  <Input
+                    name="numberOfReplicas"
+                    placeholder="Number of Replicas"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.numberOfReplicas}
+                    type="number"
+                  />
+                </FormControl>
+                <FormControl p="2">
+                  <Select
+                    placeholder="Select option"
+                    name="size"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.Size}
+                  >
+                    {sizes.map((size, index) => {
+                      return (
+                        <option key={index} value={size}>
+                          {size}
+                        </option>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+                <Box>
+                  <FormControl p="2">
+                    <Button
+                      colorScheme="blue"
+                      onClick={() => removeFields(index)}
+                    >
+                      Remove
+                    </Button>
+                  </FormControl>
+                </Box>
+              </Flex>
+            </div>
           );
         })}
       </form>
@@ -114,8 +138,21 @@ const Cluster = () => {
           return (
             <div key={index}>
               <Code p="4" className="sqlOutput" fontSize="md">
-                CREATE CLUSTER {form.name} REPLICAS ({form.replica} (SIZE='
-                {form.size}') );
+                CREATE CLUSTER {form.name} REPLICAS ( <br />
+                <>
+                  {Array(Number(form.numberOfReplicas))
+                    .fill(0)
+                    .map((_, i) => {
+                      return (
+                        <span key={i}>
+                          &nbsp; {form.replica}
+                          {i} (SIZE='{form.size}')
+                          {i < form.numberOfReplicas - 1 ? ", " : ""} <br />
+                        </span>
+                      );
+                    })}
+                </>
+                );
               </Code>
             </div>
           );
