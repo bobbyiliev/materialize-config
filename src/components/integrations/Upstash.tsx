@@ -11,8 +11,8 @@ const Upstash = () => {
             </Heading>
             <Code p="4" className="sqlOutput" fontSize="md">
                 -- Create secrets <br />
-                CREATE SECRET up_sasl_username AS <strong><u>'your_upstash_sasl_username'</u></strong>;<br />
-                CREATE SECRET up_sasl_password AS <strong><u>'your_upstash_sasl_password'</u></strong>;<br />
+                CREATE SECRET up_sasl_username AS '<strong><u>your_upstash_sasl_username</u></strong>';<br />
+                CREATE SECRET up_sasl_password AS '<strong><u>your_upstash_sasl_password</u></strong>';<br />
                 <br />
                 -- Create connection <br />
                 CREATE CONNECTION upstash_kafka <br />

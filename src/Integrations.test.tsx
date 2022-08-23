@@ -16,4 +16,6 @@ test('load confluent cloud component', () => {
   expect(redpandaElement).toBeInTheDocument();
   const upstashElement = screen.getByText(/Upstash Kafka/i);
   expect(upstashElement).toBeInTheDocument();
+  const mskElement = screen.getByText(/AWS MSK/i);
+  expect(mskElement).toBeInTheDocument();
 });

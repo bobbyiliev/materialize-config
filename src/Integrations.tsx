@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { ChakraProvider, Container, Divider, VStack } from "@chakra-ui/react";
 import "./App.css";
 
+import Header from "./Header";
+
 import ConfluentCloud from './components/integrations/ConfluentCloud';
 import RedpandaCloud from "./components/integrations/RedpandaCloud";
 import Upstash from './components/integrations/Upstash';
-import Header from "./Header";
+import AwsMsk from './components/integrations/AwsMsk';
 import theme from "./theme/index";
 
 function Integrations() {
@@ -24,6 +26,8 @@ function Integrations() {
           <ConfluentCloud />
           <Divider />
           <Upstash />
+          <Divider />
+          <AwsMsk />
           <Divider />
         </Container>
       </VStack>
