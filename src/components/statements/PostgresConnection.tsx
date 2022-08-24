@@ -137,9 +137,9 @@ const PostgresConnection = () => {
             <div key={index}>
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} FOR POSTGRES <br />
-                &nbsp; HOST {form.host}, <br />
+                &nbsp; HOST '{form.host}', <br />
                 &nbsp; PORT {form.port}, <br />
-                &nbsp; DATABASE {form.database}, <br />
+                &nbsp; DATABASE '{form.database}', <br />
                 &nbsp; USER SECRET {form.username}, <br />
                 &nbsp; PASSWORD SECRET {form.password}
                 {form.sslMode && (

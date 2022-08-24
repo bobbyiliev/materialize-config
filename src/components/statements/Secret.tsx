@@ -107,7 +107,7 @@ const Secret = () => {
                 {form.encrypted ? (
                   <> decode({form.secret}, 'base64')</>
                 ) : (
-                  <> {form.secret}</>
+                  <> '{form.secret}'</>
                 )}
                 ;
               </Code>
