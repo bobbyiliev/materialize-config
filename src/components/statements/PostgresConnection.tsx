@@ -28,6 +28,7 @@ const PostgresConnection = () => {
       username: "",
       password: "",
       sslMode: "",
+      sshTunnel: "",
     };
 
     setFormFields([...formFields, object]);
@@ -108,14 +109,24 @@ const PostgresConnection = () => {
                 </FormControl>
               </Flex>
               <Flex>
-                <Box p="2">
+                <FormControl p="2" w="full">
                   <Input
                     name="sslMode"
                     placeholder="SSL Mode"
                     onChange={event => handleFormChange(event, index)}
                     value={form.sslMode}
                   />
-                </Box>
+                </FormControl>
+                <FormControl p="2" w="full">
+                  <Input
+                    name="sshTunnel"
+                    placeholder="SSH Tunnel"
+                    onChange={event => handleFormChange(event, index)}
+                    value={form.sshTunnel}
+                  />
+                </FormControl>
+              </Flex>
+              <Flex>
                 <Spacer />
                 <Box p="2">
                   <Button
@@ -145,6 +156,11 @@ const PostgresConnection = () => {
                 {form.sslMode && (
                   <>
                     , <br /> &nbsp; SSL MODE {form.sslMode}
+                  </>
+                )}
+                {form.sshTunnel && (
+                  <>
+                    , <br /> &nbsp; SSH TUNNEL {form.sshTunnel}
                   </>
                 )}
                 ; <br />

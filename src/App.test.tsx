@@ -37,3 +37,8 @@ test('load kafka source component', () => {
   const element = screen.getByText(/Kafka Source/i);
   expect(element).toBeInTheDocument();
 });
+test('load ssh coonnection component', () => {
+  render(<App />);
+  const element = screen.getByText(/SSH Connection/i);
+  expect(element).toBeInTheDocument();
+});

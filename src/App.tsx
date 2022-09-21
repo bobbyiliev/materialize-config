@@ -12,6 +12,7 @@ import PostgresSource from "./components/statements/PostgresSource";
 import Secret from "./components/statements/Secret";
 import SchemaRegistryConnection from "./components/statements/SchemaRegistryConnection";
 import theme from "./theme/index";
+import SshConnection from './components/statements/SshConnection';
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,8 @@ function App() {
           <Cluster />
           <Divider />
           <Secret />
+          <Divider />
+          <SshConnection />
           <Divider />
           <PostgresConnection />
           <Divider />
