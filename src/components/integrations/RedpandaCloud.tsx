@@ -23,6 +23,14 @@ const RedpandaCloud = () => {
                 &nbsp; SASL PASSWORD = SECRET redpanda_password, <br />
                 &nbsp; SSL CERTIFICATE AUTHORITY = SECRET redpanda_ca_cert; <br />
                 <br />
+                -- CSR connection <br />
+                CREATE CONNECTION your_rpk_csr <br />
+                &nbsp; FOR CONFLUENT SCHEMA REGISTRY <br />
+                &nbsp; URL '<strong><u>your_confluent_schema_registry_url</u></strong>', <br />
+                &nbsp; SSL KEY = SECRET <strong><u>your_csr_key</u></strong>, <br />
+                &nbsp; SSL CERTIFICATE = SECRET <strong><u>your_csr_cert</u></strong>, <br />
+                &nbsp; SSL CERTIFICATE AUTHORITY = SECRET <strong><u>your_csr_ca</u></strong>; <br />
+                <br />
                 -- Create source <br />
                 CREATE SOURCE <strong><u>your_topic</u></strong> <br />
                 &nbsp; FROM KAFKA CONNECTION redpanda_cloud TOPIC '<strong><u>your_topic</u></strong>' <br />
