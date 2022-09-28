@@ -15,6 +15,10 @@ const Header = () => {
           <BreadcrumbLink href="/integrations">Integrations</BreadcrumbLink>
         </BreadcrumbItem>
 
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/json">JSON Views</BreadcrumbLink>
+        </BreadcrumbItem>
+
       </Breadcrumb>
     </>
   );
