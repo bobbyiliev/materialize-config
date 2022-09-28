@@ -11,6 +11,8 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
+var flatten = require('flat')
+
 const Views = () => {
   const [formFields, setFormFields] = useState([]);
 
@@ -27,7 +29,6 @@ const Views = () => {
 
   const submit = e => {
     e.preventDefault();
-    console.log(formFields);
   };
 
   const addFields = () => {
@@ -41,14 +42,18 @@ const Views = () => {
   };
 
   const escapeString = (s: String) => {
-    return s.replace(`'`, `''`);
+    s = s.replace(/'/g, `''`);
+    s = s.replace(/->/g, `'->>'`);
+    return s;
   };
 
   const escapeIdent = (s: String) => {
-    return s.replace(`"`, `""`);
+    s = s.replace(/"/g, `""`);
+    s = s.replace(/->/g, `_`);
+    return s;
   };
 
-  const flatten = json => {
+  const materialize = json => {
     // Check if valid JSON
     try {
         JSON.parse(json);
@@ -56,7 +61,10 @@ const Views = () => {
         return "Invalid JSON";
     }
 
-    const selectItems = Object.entries(JSON.parse(json))
+    // Flatten JSON
+    let flat = flatten(JSON.parse(json), { delimiter: '->'});
+    let keys = Object.keys(flat);
+    const selectItems = Object.entries(flat)
       .map(([k, v]) => {
         let subscript = escapeString(k);
         let colName = escapeIdent(k);
@@ -70,13 +78,6 @@ const Views = () => {
             break;
           case "string":
             cast = "::text";
-            break;
-          case "object":
-            if (v === null) {
-                cast = "::text";
-                } else {
-                cast = "::jsonb";
-            }
             break;
 
         }
@@ -160,7 +161,7 @@ const Views = () => {
             <div key={index}>
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE MATERIALIZED VIEW {form.name} AS SELECT
-                &nbsp; {flatten(form.json).split(`\n`).map((item, index) => {
+                &nbsp; {materialize(form.json).split(`\n`).map((item, index) => {
                         return (
                             <div key={index}>
                             &nbsp; &nbsp; {item}
