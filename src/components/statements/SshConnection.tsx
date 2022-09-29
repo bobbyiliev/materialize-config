@@ -115,7 +115,7 @@ const SshConnection = () => {
                 <br />
                 -- <i>Get the public key and add it to your SSH host:</i>
                 <br />
-                -- <i>SELECT * FROM {form.name};</i>
+                -- <i>SELECT * FROM mz_ssh_tunnel_connections;</i>
               </Code>
             </div>
           );
