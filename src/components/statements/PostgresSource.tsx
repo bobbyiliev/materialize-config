@@ -90,7 +90,7 @@ const PostgresSource = () => {
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE SOURCE "{form.name}" <br />
                 &nbsp; FROM POSTGRES CONNECTION {form.connection} <br />
-                &nbsp; PUBLICATION '{form.publication}';
+                &nbsp; (PUBLICATION '{form.publication}');
               </Code>
             </div>
           );
