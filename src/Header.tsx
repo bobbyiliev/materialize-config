@@ -19,6 +19,10 @@ const Header = () => {
           <BreadcrumbLink href="/json">JSON Views</BreadcrumbLink>
         </BreadcrumbItem>
 
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/terraform">Terraform Modules</BreadcrumbLink>
+        </BreadcrumbItem>
+
       </Breadcrumb>
     </>
   );

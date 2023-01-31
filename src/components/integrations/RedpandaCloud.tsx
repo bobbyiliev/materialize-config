@@ -32,8 +32,8 @@ const RedpandaCloud = () => {
                 &nbsp; SSL CERTIFICATE AUTHORITY = SECRET <strong><u>your_csr_ca</u></strong>; <br />
                 <br />
                 -- Create source <br />
-                CREATE SOURCE <strong><u>your_topic</u></strong> <br />
-                &nbsp; FROM KAFKA CONNECTION redpanda_cloud TOPIC '<strong><u>your_topic</u></strong>' <br />
+                CREATE SOURCE <strong><u>your_source_name</u></strong> <br />
+                &nbsp; FROM KAFKA CONNECTION redpanda_cloud (TOPIC '<strong><u>your_topic</u></strong>') <br />
                 &nbsp; FORMAT BYTES; <br />
             </Code>
         </>

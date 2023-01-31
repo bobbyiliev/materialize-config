@@ -103,11 +103,11 @@ const Secret = () => {
           return (
             <div key={index}>
               <Code p="4" className="sqlOutput" fontSize="md">
-                CREATE SECRET {form.name} AS
+                CREATE SECRET {form.name.trim()} AS
                 {form.encrypted ? (
-                  <> decode({form.secret}, 'base64')</>
+                  <> decode('{form.secret.trim()}', 'base64')</>
                 ) : (
-                  <> '{form.secret}'</>
+                  <> '{form.secret.trim()}'</>
                 )}
                 ;
               </Code>

@@ -23,8 +23,8 @@ const Upstash = () => {
                 &nbsp; SASL PASSWORD = SECRET up_sasl_password; <br />
                 <br />
                 -- Create source <br />
-                CREATE SOURCE <strong><u>your_topic</u></strong> <br />
-                &nbsp; FROM KAFKA CONNECTION upstash_kafka TOPIC '<strong><u>your_topic</u></strong>' <br />
+                CREATE SOURCE <strong><u>your_source_name</u></strong> <br />
+                &nbsp; FROM KAFKA CONNECTION upstash_kafka (TOPIC '<strong><u>your_topic</u></strong>') <br />
                 &nbsp; FORMAT BYTES; <br />
             </Code>
         </>

@@ -35,18 +35,18 @@ const ConfluentCloud = () => {
                 <br />
                 -- Create bytes source<br />
                 CREATE SOURCE <strong><u>your_topic</u></strong> <br />
-                &nbsp; FROM KAFKA CONNECTION confluent_cloud TOPIC '<strong><u>your_topic</u></strong>' <br />
+                &nbsp; FROM KAFKA CONNECTION confluent_cloud (TOPIC '<strong><u>your_topic</u></strong>') <br />
                 &nbsp; FORMAT BYTES; <br />
                 <br />
                 -- Create avro source<br />
                 CREATE SOURCE <strong><u>your_avro_topic</u></strong> <br />
-                &nbsp; FROM KAFKA CONNECTION confluent_cloud TOPIC '<strong><u>your_avro_topic</u></strong>' <br />
+                &nbsp; FROM KAFKA CONNECTION confluent_cloud (TOPIC '<strong><u>your_avro_topic</u></strong>') <br />
                 &nbsp; FORMAT AVRO USING CONFLUENT SCHEMA REGISTRY CONNECTION schema_registry <br />
                 &nbsp; ENVELOPE NONE; <br />
                 <br />
                 -- Create protobuf source<br />
                 CREATE SOURCE <strong><u>your_protobuf_topic</u></strong> <br />
-                &nbsp; FROM KAFKA CONNECTION kafka_connection TOPIC '<strong><u>your_protobuf_topic</u></strong>' <br />
+                &nbsp; FROM KAFKA CONNECTION kafka_connection (TOPIC '<strong><u>your_protobuf_topic</u></strong>') <br />
                 &nbsp; FORMAT PROTOBUF USING CONFLUENT SCHEMA REGISTRY CONNECTION schema_registry <br />
                 &nbsp; ENVELOPE NONE; <br />
             </Code>

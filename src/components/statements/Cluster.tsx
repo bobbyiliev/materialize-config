@@ -14,6 +14,7 @@ import {
 const Cluster = () => {
   const [formFields, setFormFields] = useState([]);
   const sizes = [
+    "2xsmall",
     "xsmall",
     "small",
     "medium",

@@ -166,7 +166,7 @@ const KafkaSource = () => {
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE SOURCE {form.name} <br />
                 &nbsp; FROM KAFKA CONNECTION {form.kafka} <br />
-                &nbsp; TOPIC '{form.topic}' <br />
+                &nbsp; (TOPIC '{form.topic.trim()}') <br />
                 &nbsp; FORMAT {form.format}
                 {form.schema && (
                   <>

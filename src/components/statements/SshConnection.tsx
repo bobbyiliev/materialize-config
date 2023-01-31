@@ -109,9 +109,9 @@ const SshConnection = () => {
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} <br />
                 &nbsp; FOR SSH TUNNEL <br />
-                &nbsp; HOST '{form.host}', <br />
-                &nbsp; USER '{form.user}', <br />
-                &nbsp; PORT {form.port}; <br />
+                &nbsp; HOST '{form.host.trim()}', <br />
+                &nbsp; USER '{form.user.trim()}', <br />
+                &nbsp; PORT {form.port.trim()}; <br />
                 <br />
                 -- <i>Get the public key and add it to your SSH host:</i>
                 <br />

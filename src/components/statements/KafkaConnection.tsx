@@ -149,11 +149,11 @@ const KafkaConnection = () => {
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} <br />
                 &nbsp; FOR KAFKA <br />
-                &nbsp; BROKER '{form.host}'
+                &nbsp; BROKER '{form.host.trim()}'
                 {form.mechanisms && (
                   <>
                     ,<br />
-                    &nbsp; SASL MECHANISMS = '{form.mechanisms}'
+                    &nbsp; SASL MECHANISMS = '{form.mechanisms.trim()}'
                   </>
                 )}
                 {form.username && (

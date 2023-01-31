@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from "react";
-import { ChakraProvider, Container, Divider, VStack } from "@chakra-ui/react";
+import { ChakraProvider, Container, Divider, VStack, Center, Link } from "@chakra-ui/react";
 import "./App.css";
 
 import Header from "./Header";
@@ -20,6 +20,9 @@ function Integrations() {
     <ChakraProvider theme={theme}>
       <VStack>
         <Header />
+        <Center>
+          <Link href="https://materialize.com/docs/integrations" isExternal>Materialize Integrations Documentation</Link>
+        </Center>
         <Container as="main" maxW="4xl" px="5" py="3">
           <RedpandaCloud />
           <Divider />

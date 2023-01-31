@@ -139,7 +139,7 @@ const SchemaRegistryConnection = () => {
               <Code p="4" className="sqlOutput" fontSize="md">
                 CREATE CONNECTION {form.name} <br />
                 &nbsp; FOR CONFLUENT SCHEMA REGISTRY <br />
-                &nbsp; URL '{form.url}'
+                &nbsp; URL '{form.url.trim()}'
                 {form.username && (
                   <>
                     , <br />

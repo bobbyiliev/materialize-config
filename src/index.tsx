@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Integrations from "./Integrations";
 import JsonViews from "./JsonViews";
+import Terraform from "./Terraform";
 import { ColorModeScript } from '@chakra-ui/react'
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme/index";
@@ -24,6 +25,7 @@ root.render(
         <Route path="/" element={<App />}></Route>
         <Route path="/integrations" element={<Integrations />}></Route>
         <Route path="/json" element={<JsonViews />}></Route>
+        <Route path="/terraform" element={<Terraform />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

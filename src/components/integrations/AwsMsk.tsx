@@ -39,11 +39,11 @@ const AwsMsk = () => {
           <u>your_topic</u>
         </strong>{" "}
         <br />
-        &nbsp; FROM KAFKA CONNECTION msk_kafka TOPIC '
+        &nbsp; FROM KAFKA CONNECTION msk_kafka (TOPIC '
         <strong>
           <u>your_topic</u>
         </strong>
-        ' <br />
+        ') <br />
         &nbsp; FORMAT TEXT; <br />
       </Code>
     </>

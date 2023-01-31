@@ -88,9 +88,9 @@ const PostgresSource = () => {
           return (
             <div key={index}>
               <Code p="4" className="sqlOutput" fontSize="md">
-                CREATE SOURCE "{form.name}" <br />
-                &nbsp; FROM POSTGRES CONNECTION {form.connection} <br />
-                &nbsp; (PUBLICATION '{form.publication}');
+                CREATE SOURCE "{form.name.trim()}" <br />
+                &nbsp; FROM POSTGRES CONNECTION {form.connection.trim()} <br />
+                &nbsp; (PUBLICATION '{form.publication.trim()}');
               </Code>
             </div>
           );
